@@ -70,9 +70,34 @@ public class Colosseum {
      *         (Look, we can return objects too!)
      *         <p>
      *         Implement this function.
+     *         int hitPoints;
+     *         int attackLevel;
+     *         int defenseLevel;
+     *         String name;
      */
     public static Pokemon buildPokemon() {
         Pokemon tempPokemon = new Pokemon();
+        Scanner lineScanner = new Scanner(System.in);
+        System.out.println("Please name your Pokemon: ");
+        tempPokemon.name = lineScanner.nextLine();
+        System.out.println("How many hit points will it have? (1-50): ");
+        tempPokemon.hitPoints = lineScanner.nextInt();
+        while (tempPokemon.hitPoints < 1 || tempPokemon.hitPoints > MAX_HIT_POINTS) {
+            System.out.println("Sorry. Hit Points must be between 1 and 50: ");
+            tempPokemon.hitPoints = lineScanner.nextInt();
+        }
+        System.out.println("Enter your attack level (1-49): ");
+        tempPokemon.attackLevel = lineScanner.nextInt();
+        while (tempPokemon.attackLevel < 1 || tempPokemon.attackLevel > 49) {
+            System.out.println("Sorry. The attack level must be between 1 and 49: ");
+            tempPokemon.attackLevel = lineScanner.nextInt();
+        }
+        System.out.println("Enter your defense level (1-23): ");
+        tempPokemon.defenseLevel = lineScanner.nextInt();
+        while (tempPokemon.defenseLevel < 1 || tempPokemon.defenseLevel > 23) {
+            System.out.println("Sorry. The defense level must be between 1 and 23: ");
+            tempPokemon.defenseLevel = lineScanner.nextInt();
+        }
         return tempPokemon;
     }
 
